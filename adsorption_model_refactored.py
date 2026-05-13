@@ -153,7 +153,7 @@ def calculate_scores(data_dict, weights):
         potential = total_score
 
         # Confidence penalty
-        confidence = 0.5 + 0.5 * (count / 4)
+        confidence = 0.75 + 0.25 * (count / 4)
 
         conservative = potential * confidence
 
