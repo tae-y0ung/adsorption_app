@@ -76,25 +76,6 @@ if st.button("제거하기"):
         st.warning("해당 활성탄이 존재하지 않습니다.")
 
 # =========================================================
-# 3. ENVIRONMENT SETTINGS
-# =========================================================
-st.header("환경 조건 설정")
-
-if "ph" not in st.session_state:
-    st.session_state.ph = 7.0
-if "temp" not in st.session_state:
-    st.session_state.temp = 25
-
-if st.button("환경 조건 초기화"):
-    st.session_state.ph = 7.0
-    st.session_state.temp = 25
-
-ph = st.slider("pH 값", 1.0, 14.0, st.session_state.ph, step=0.1, key="ph")
-temp = st.slider("온도 (°C)", 0, 100, st.session_state.temp, key="temp")
-
-st.info(f"현재 환경 조건\n\n- pH: {ph}\n- Temperature: {temp}°C")
-
-# =========================================================
 # 4. WEIGHT SETTINGS
 # =========================================================
 st.header("성능 평가 비중 설정")
@@ -134,6 +115,25 @@ weights = {
     "mb": physical_weight * mb_ratio,
     "iodine": physical_weight * iodine_ratio
 }
+
+# =========================================================
+# 3. ENVIRONMENT SETTINGS
+# =========================================================
+st.header("환경 조건 설정")
+
+if "ph" not in st.session_state:
+    st.session_state.ph = 7.0
+if "temp" not in st.session_state:
+    st.session_state.temp = 25
+
+if st.button("환경 조건 초기화"):
+    st.session_state.ph = 7.0
+    st.session_state.temp = 25
+
+ph = st.slider("pH 값", 1.0, 14.0, st.session_state.ph, step=0.1, key="ph")
+temp = st.slider("온도 (°C)", 0, 100, st.session_state.temp, key="temp")
+
+st.info(f"현재 환경 조건\n\n- pH: {ph}\n- Temperature: {temp}°C")
 
 # =========================================================
 # 6. CALCULATION
